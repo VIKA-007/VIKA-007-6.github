@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор стоимости услуги</title>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <h1>Калькулятор стоимости услуги</h1>
+
+  <form id="service-form" novalidate>
+    <fieldset>
+      <legend>Тип услуги</legend>
+      <label>
+        <input type="radio" name="service" value="basic" checked>
+        Базовая — 100 ₽
+      </label>
+      <label>
+        <input type="radio" name="service" value="standard">
+        Стандартная — 200 ₽
+      </label>
+      <label>
+        <input type="radio" name="service" value="premium">
+        Премиум — 300 ₽
+      </label>
+    </fieldset>
+
+    <p>
+      <label for="quantity">Количество:</label>
+      <input type="text" id="quantity" name="quantity" value="1">
+    </p>
+
+    <!-- Блок опций (селект) — виден только для типа "standard" -->
+    <p id="options-block">
+      <label for="option">Опция:</label>
+      <select id="option" name="option">
+        <option value="0">Без опции (+0 ₽)</option>
+        <option value="50">Опция A (+50 ₽)</option>
+        <option value="100">Опция B (+100 ₽)</option>
+      </select>
+    </p>
+
+    <!-- Блок свойства (чекбокс) — виден только для типа "premium" -->
+    <p id="property-block">
+      <label>
+        <input type="checkbox" id="property" name="property" value="150">
+        Дополнительное свойство (+150 ₽)
+      </label>
+    </p>
+  </form>
+
+  <div id="error" class="error" role="alert"></div>
+  <div id="result" class="result"></div>
+</body>
+</html>
